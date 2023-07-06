@@ -15,14 +15,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 @Service
 public class UserServcieImpl implements UserService {
-    @Autowired
     private UserRepository userRepository;
-
-    @Autowired
     private RoleRepository roleRepository;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
+
+    public UserServcieImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();

@@ -20,6 +20,7 @@ public class SpringSecurity {
     private UserDetailsService userDetailsService;
 
     //Mã hóa pass và kiểm tra tính hợp lệ
+    @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
